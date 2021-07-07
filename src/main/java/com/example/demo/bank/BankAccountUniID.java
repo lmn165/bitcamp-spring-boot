@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.bank;
 
 public class BankAccountUniID {
     public static void main(String[] args) {

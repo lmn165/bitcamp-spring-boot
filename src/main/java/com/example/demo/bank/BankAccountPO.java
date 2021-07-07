@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.bank;
 
 public class BankAccountPO {
     static int balance = 0; // 예금 잔액

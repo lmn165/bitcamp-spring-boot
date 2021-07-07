@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.tv;
 
 class TVControl{
     public static void main(String[] args) throws InterruptedException {

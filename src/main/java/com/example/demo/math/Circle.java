@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.math;
 
 public class Circle {
     // 상수(Constant)

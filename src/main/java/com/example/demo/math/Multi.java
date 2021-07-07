@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.math;
 // 구구단 연습
 public class Multi {
 

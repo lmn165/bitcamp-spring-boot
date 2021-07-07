@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.bank;
 
 public class BankAccount {
     String accNumber;   // 계좌번호
