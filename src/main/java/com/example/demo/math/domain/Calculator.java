@@ -1,7 +1,8 @@
-package com.example.demo.math;
+package com.example.demo.math.domain;
 
 public class Calculator {
-    int num1, num2, num3;
+    private int num1, num2;
+    private String opcode;
 
     public int getNum1() {
         return num1;
@@ -15,15 +16,15 @@ public class Calculator {
     public void setNum2(int num2) {
         this.num2 = num2;
     }
-    public int getNum3() {
-        return num3;
+    public String getOpcode() {
+        return opcode;
     }
-    public void setNum3(int num3) {
-        this.num3 = num3;
+    public void setOpcode(String opcode) {
+        this.opcode = opcode;
     }
 
     @Override
     public String toString() {
-        return String.format("%d + %d = %d", num1, num2, num3);
+        return String.format("%d + %d = %d", num1, num2, num1+num2);
     }
 }
