@@ -1,6 +1,8 @@
-package com.example.demo.bank;
+package com.example.demo.bank.controller;
 
-public class BankAccountConstructor {
+import com.example.demo.bank.domain.BankAccount;
+
+public class BankAccountConstructorController2 {
     public static void main(String[] args) {
         BankAccount yoon = new BankAccount("12-34-89", "990990-9090990", 10000);
         BankAccount park = new BankAccount("33-55-09", "770088-5959007", 10000);

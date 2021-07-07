@@ -1,7 +1,9 @@
-package com.example.demo.bank;
+package com.example.demo.bank.controller;
+
+import com.example.demo.bank.domain.BankAccount;
 
 // OO(ObjectOrient) - 객체지향 (버전)
-public class BankAccountObjectOrientVersion {
+public class BankAccountController {
 
     public static void main(String[] args) {
         // 두 개의 인스턴스 생성

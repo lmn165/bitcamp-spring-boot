@@ -1,6 +1,8 @@
-package com.example.demo.bank;
+package com.example.demo.bank.controller;
 
-public class BankAccountUniID {
+import com.example.demo.bank.domain.BankAccount;
+
+public class BankAccountConstructorController {
     public static void main(String[] args) {
         BankAccount yoon = new BankAccount();   // 계좌 생성
         yoon.initAccount("12-34-89", "990990-9090990", 10000);  // 초기화

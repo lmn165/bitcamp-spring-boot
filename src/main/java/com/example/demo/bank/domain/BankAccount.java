@@ -1,12 +1,30 @@
-package com.example.demo.bank;
+package com.example.demo.bank.domain;
 
 public class BankAccount {
-    String accNumber;   // 계좌번호
-    String ssNumber;    // 주민번호
-    int balance;    // 예금 잔액
+    private String accNumber;   // 계좌번호
+    private String ssNumber;    // 주민번호
+    private int balance;    // 예금 잔액
+
+    public void setAccNumber(String accNumber){
+        this.accNumber = accNumber;
+    }
+    public String getAccNumber(){
+        return this.accNumber;
+    }
+    public void setSsNumber(String ssNumber){
+        this.ssNumber = ssNumber;
+    }
+    public String getSsNumber(){
+        return this.ssNumber;
+    }
+    public void setBalance(int balance){
+        this.balance = balance;
+    }
+    public int getBalance(){
+        return this.balance;
+    }
 
     public BankAccount(){}
-
     public BankAccount(String acc, String ss, int bal){ // 생성자
         accNumber = acc;
         ssNumber = ss;
@@ -23,12 +41,10 @@ public class BankAccount {
         balance += amount;
         return balance;
     }
-
     public int withdraw(int amount){
         balance -= amount;
         return balance;
     }
-
     public int checkMyBalance() {
         System.out.println("계좌번호: " + accNumber);
         System.out.println("주민번호: " + ssNumber);
