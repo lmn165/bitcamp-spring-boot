@@ -1,6 +1,7 @@
 package com.example.demo.bank;
 
-public class BankAccountOO {
+// OO(ObjectOrient) - 객체지향 (버전)
+public class BankAccountObjectOrientVersion {
 
     public static void main(String[] args) {
         // 두 개의 인스턴스 생성
