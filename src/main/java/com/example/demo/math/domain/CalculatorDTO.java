@@ -1,6 +1,6 @@
 package com.example.demo.math.domain;
 
-public class Calculator {
+public class CalculatorDTO {
     private int num1, num2;
     private String opcode;
 
@@ -17,7 +17,7 @@ public class Calculator {
         this.num2 = num2;
     }
     public String getOpcode() {
-        return opcode;
+        return this.opcode;
     }
     public void setOpcode(String opcode) {
         this.opcode = opcode;

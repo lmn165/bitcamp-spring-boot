@@ -1,6 +1,6 @@
-package com.example.demo.math;
+package com.example.demo.math.controller;
 
-public class Sum {
+public class SumController {
 
     public static void main(String[] args) {
         int i=0;

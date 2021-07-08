@@ -1,11 +1,11 @@
 package com.example.demo.bank.controller;
 
-import com.example.demo.bank.domain.BankAccount;
+import com.example.demo.bank.domain.BankAccountDTO;
 
 public class BankAccountConstructorController2 {
     public static void main(String[] args) {
-        BankAccount yoon = new BankAccount("12-34-89", "990990-9090990", 10000);
-        BankAccount park = new BankAccount("33-55-09", "770088-5959007", 10000);
+        BankAccountDTO yoon = new BankAccountDTO("12-34-89", "990990-9090990", 10000);
+        BankAccountDTO park = new BankAccountDTO("33-55-09", "770088-5959007", 10000);
 
         yoon.deposit(5000);
         park.deposit(3000);

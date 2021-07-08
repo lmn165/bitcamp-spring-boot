@@ -1,12 +1,12 @@
 package com.example.demo.bicycle.controller;
 
-import com.example.demo.bicycle.domain.BicycleDomain;
+import com.example.demo.bicycle.domain.BicycleDTO;
 
 import java.util.Scanner;
 
 public class BicyclesController {
     public static void main(String[] args) {
-        BicycleDomain bicycle = new BicycleDomain();
+        BicycleDTO bicycle = new BicycleDTO();
         Scanner scanner = new Scanner(System.in);
         System.out.println("현재 기어 단계: ");
         bicycle.setCurrentGear(scanner.nextInt());

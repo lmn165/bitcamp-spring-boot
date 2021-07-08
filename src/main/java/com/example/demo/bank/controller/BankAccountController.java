@@ -1,14 +1,14 @@
 package com.example.demo.bank.controller;
 
-import com.example.demo.bank.domain.BankAccount;
+import com.example.demo.bank.domain.BankAccountDTO;
 
 // OO(ObjectOrient) - 객체지향 (버전)
 public class BankAccountController {
 
     public static void main(String[] args) {
         // 두 개의 인스턴스 생성
-        BankAccount yoon = new BankAccount();
-        BankAccount park = new BankAccount();
+        BankAccountDTO yoon = new BankAccountDTO();
+        BankAccountDTO park = new BankAccountDTO();
 
         // 각 인스턴스를 대상으로 예금을 진행
         yoon.deposit(5000);
