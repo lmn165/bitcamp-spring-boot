@@ -5,9 +5,10 @@ import com.example.demo.bicycle.domain.BicycleDTO;
 import java.util.Scanner;
 
 public class BicyclesController {
-    public static void main(String[] args) {
-        BicycleDTO bicycle = new BicycleDTO();
-        Scanner scanner = new Scanner(System.in);
+    BicycleDTO bicycle = new BicycleDTO();
+    Scanner scanner = new Scanner(System.in);
+
+    public void askBicycleInfo(){
         System.out.println("현재 기어 단계: ");
         bicycle.setCurrentGear(scanner.nextInt());
         System.out.println("분당 페달수: ");

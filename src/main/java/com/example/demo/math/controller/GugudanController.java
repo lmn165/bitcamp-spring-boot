@@ -2,7 +2,7 @@ package com.example.demo.math.controller;
 // 구구단 연습
 public class GugudanController {
 
-    public static void main(String[] args) {
+    public void excuteGugudan(){
         for(int i=2; i<10; i++){
             System.out.println(i + "단 ");
             for(int j=1; j<10; j++){
@@ -12,5 +12,4 @@ public class GugudanController {
 //            System.out.println("\n=============================================================================================================");
         }
     }
-
 }

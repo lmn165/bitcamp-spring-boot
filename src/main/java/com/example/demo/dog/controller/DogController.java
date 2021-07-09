@@ -5,9 +5,10 @@ import com.example.demo.dog.domain.Dog;
 import java.util.Scanner;
 
 public class DogController {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        Dog dog = new Dog();
+    Scanner scanner = new Scanner(System.in);
+    Dog dog = new Dog();
+
+    public void askDogInfo(){
         System.out.println("개의 이름?");
         dog.setName(scanner.next());
         System.out.println("개의 색상?");
