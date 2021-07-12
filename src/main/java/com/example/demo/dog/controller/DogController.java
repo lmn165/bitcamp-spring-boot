@@ -5,8 +5,13 @@ import com.example.demo.dog.domain.Dog;
 import java.util.Scanner;
 
 public class DogController {
-    Scanner scanner = new Scanner(System.in);
-    Dog dog = new Dog();
+    Scanner scanner;
+    Dog dog;
+
+    public DogController(){
+        scanner = new Scanner(System.in);
+        dog = new Dog();
+    }
 
     public void askDogInfo(){
         System.out.println("개의 이름?");

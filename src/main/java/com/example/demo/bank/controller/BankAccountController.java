@@ -11,7 +11,7 @@ public class BankAccountController {
         BankAccountDTO park = new BankAccountDTO();
 
         // 각 인스턴스를 대상으로 예금을 진행
-        yoon.deposit(5000);
+        /*yoon.deposit(5000);
         park.deposit(3000);
 
         // 각 인스턴스를 대상으로 출금을 진행
@@ -20,7 +20,7 @@ public class BankAccountController {
 
         // 각 인스턴스를 대상으로 잔액을 조회
         yoon.checkMyBalance();
-        park.checkMyBalance();
+        park.checkMyBalance();*/
     }
 
 }

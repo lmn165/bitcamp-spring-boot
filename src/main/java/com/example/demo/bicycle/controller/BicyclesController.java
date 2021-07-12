@@ -5,9 +5,12 @@ import com.example.demo.bicycle.domain.BicycleDTO;
 import java.util.Scanner;
 
 public class BicyclesController {
-    BicycleDTO bicycle = new BicycleDTO();
-    Scanner scanner = new Scanner(System.in);
-
+    private BicycleDTO bicycle;
+    private Scanner scanner;
+    public BicyclesController(){
+        bicycle = new BicycleDTO();
+        scanner = new Scanner(System.in);
+    }
     public void askBicycleInfo(){
         System.out.println("현재 기어 단계: ");
         bicycle.setCurrentGear(scanner.nextInt());

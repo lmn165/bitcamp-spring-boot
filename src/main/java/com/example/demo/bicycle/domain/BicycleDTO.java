@@ -1,28 +1,12 @@
 package com.example.demo.bicycle.domain;
 
+import lombok.Data;
+
 //  state (current gear, current pedal cadence, current speed) and behavior (changing gear, changing pedal cadence, applying brakes)
+@Data
 public class BicycleDTO {
     private int currentGear, pedalCadence;
     private double speed;
-
-    public void setCurrentGear(int currentGear) {
-        this.currentGear = currentGear;
-    }
-    public int getCurrentGear() {
-        return currentGear;
-    }
-    public void setPedalCadence(int pedalCadence) {
-        this.pedalCadence = pedalCadence;
-    }
-    public int getPedalCadence() {
-        return pedalCadence;
-    }
-    public void setSpeed(double speed){
-        this.speed = speed;
-    }
-    public double getSpeed(){
-        return this.speed;
-    }
 
     @Override
     public String toString() {

@@ -7,9 +7,16 @@ import com.example.demo.math.service.CalculatorServiceImpl;
 import java.util.Scanner;
 
 public class CalculatorController {
-    Scanner scanner = new Scanner(System.in);
-    CalculatorDTO calculator = new CalculatorDTO();
-    CalculatorService calculatorService = new CalculatorServiceImpl();
+    Scanner scanner;
+    CalculatorDTO calculator;
+    CalculatorService calculatorService;
+
+    public CalculatorController(){
+        scanner = new Scanner(System.in);
+        calculator = new CalculatorDTO();
+        calculatorService = new CalculatorServiceImpl();
+    }
+
 
     public void calculate(){
         System.out.println("숫자 1 ?");

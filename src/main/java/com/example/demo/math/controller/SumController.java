@@ -2,7 +2,7 @@ package com.example.demo.math.controller;
 
 public class SumController {
 
-    public static void main(String[] args) {
+    public void sum(){
         int i=0;
         int result=0;
         // 1부터 10까지의 합 구하기
