@@ -4,6 +4,7 @@ import com.example.demo.bicycle.controller.BicyclesController;
 import com.example.demo.dog.controller.DogController;
 import com.example.demo.math.controller.CalculatorController;
 import com.example.demo.math.controller.GugudanController;
+import com.example.demo.util.cotroller.UtilController;
 
 import java.util.Scanner;
 
@@ -14,9 +15,10 @@ public class HomeController {
         DogController dogController = new DogController();
         BicyclesController bicyclesController = new BicyclesController();
         GugudanController gugudanController = new GugudanController();
+        UtilController utilController = new UtilController();
 
         while (true){
-            System.out.println("\n[메뉴] 0.종료, 1.계산기, 2.수열, 3.개 정보, 4.자전거 정보, 5.구구단 출력");
+            System.out.println("\n[메뉴] 0.종료, 1.계산기, 2.수열, 3.개 정보, 4.자전거 정보, 5.구구단 출력, 6. 오늘날짜");
             switch (scanner.next()){
                 case "0": return;
                 case "1": calculatorController.calculate(); break;
@@ -24,6 +26,7 @@ public class HomeController {
                 case "3": dogController.askDogInfo(); break;
                 case "4": bicyclesController.askBicycleInfo(); break;
                 case "5": gugudanController.excuteGugudan(); break;
+                case "6": utilController.todayAndCurrentTime(); break;
             }
         }
     }

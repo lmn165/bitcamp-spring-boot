@@ -1,15 +1,33 @@
 package com.example.demo.bank.domain;
 
 public class BankAccountDTO {
-    private String accNumber;   // 계좌번호
-    private String ssNumber;    // 주민번호
-    private int balance;    // 예금 잔액
+    private String name, bankName;
+    private String accountNumber;   // 계좌번호
+    private String date;
+    private int money;    // 예금 잔액
+    private float interest; // 이자율
+    private int balance;
+    private String ssNumber;
+
+    public BankAccountDTO(){}
+    public BankAccountDTO(String acc, String ss, int bal){ // 생성자
+        accountNumber = acc;
+        ssNumber = ss;
+        balance = bal;  // 계좌 개설 시 예금액으로 초기화
+    }
+
+    // 초기화를 위한 메소드
+    public void initAccount(String acc, String ss, int bal){
+        accountNumber = acc;
+        ssNumber = ss;
+        balance = bal;  // 계좌 개설 시 예금액으로 초기화
+    }
 
     public void setAccNumber(String accNumber){
-        this.accNumber = accNumber;
+        this.accountNumber = accNumber;
     }
     public String getAccNumber(){
-        return this.accNumber;
+        return this.accountNumber;
     }
     public void setSsNumber(String ssNumber){
         this.ssNumber = ssNumber;
@@ -24,19 +42,6 @@ public class BankAccountDTO {
         return this.balance;
     }
 
-    public BankAccountDTO(){}
-    public BankAccountDTO(String acc, String ss, int bal){ // 생성자
-        accNumber = acc;
-        ssNumber = ss;
-        balance = bal;  // 계좌 개설 시 예금액으로 초기화
-    }
-
-    // 초기화를 위한 메소드
-    public void initAccount(String acc, String ss, int bal){
-        accNumber = acc;
-        ssNumber = ss;
-        balance = bal;  // 계좌 개설 시 예금액으로 초기화
-    }
     public  int deposit(int amount){
         balance += amount;
         return balance;
@@ -46,9 +51,10 @@ public class BankAccountDTO {
         return balance;
     }
     public int checkMyBalance() {
-        System.out.println("계좌번호: " + accNumber);
+        System.out.println("계좌번호: " + accountNumber);
         System.out.println("주민번호: " + ssNumber);
         System.out.println("잔액: " + balance + "\n");
         return balance;
     }
+
 }
