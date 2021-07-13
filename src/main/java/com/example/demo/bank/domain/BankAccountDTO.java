@@ -8,7 +8,8 @@ public class BankAccountDTO {
     private String name;
     private String accountNumber;   // 계좌번호
     private String date;
-    private int money;    // 예금 잔액
+    private int money;
+    private int balance;    // 예금 잔액
     private float interest; // 이자율
 
 }

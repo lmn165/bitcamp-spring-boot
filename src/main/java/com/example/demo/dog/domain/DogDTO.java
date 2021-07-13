@@ -6,13 +6,12 @@ import lombok.Data;
 import java.util.Scanner;
 
 @Data
-public class Dog{
+public class DogDTO {
     private String name, color, breed;
-    private boolean hungry;
 
     @Override
     public String toString() {
-        return String.format("%s, %s, %s, %s", name, color, breed, hungry?"배고픔":"배부름");
+        return String.format("이름은 %s이고, 색깔은 %s이고, 품종은 %s인 강아지가 ", name, color, breed);
     }
 }
 

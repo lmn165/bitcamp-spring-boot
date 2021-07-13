@@ -1,27 +1,30 @@
 package com.example.demo.dog.controller;
 
-import com.example.demo.dog.domain.Dog;
+import com.example.demo.dog.domain.DogDTO;
+import com.example.demo.dog.service.DogService;
+import com.example.demo.dog.service.DogServiceImpl;
+import lombok.RequiredArgsConstructor;
 
 import java.util.Scanner;
 
-public class DogController {
-    Scanner scanner;
-    Dog dog;
+@RequiredArgsConstructor
+public class DogController implements DogService {
 
-    public DogController(){
-        scanner = new Scanner(System.in);
-        dog = new Dog();
+    private final DogService dogService;
+
+    @Override
+    public String barking(String bark) {
+        return dogService.barking(bark);
     }
 
-    public void askDogInfo(){
-        System.out.println("개의 이름?");
-        dog.setName(scanner.next());
-        System.out.println("개의 색상?");
-        dog.setColor(scanner.next());
-        System.out.println("개의 품종?");
-        dog.setBreed(scanner.next());
-        System.out.println("개의 배고픔 상태?");
-        dog.setHungry(scanner.nextBoolean());
-        System.out.printf(dog.toString());
+    @Override
+    public String fetching(String target) {
+        return dogService.fetching(target);
     }
+
+    @Override
+    public String waggingTail() {
+        return dogService.waggingTail();
+    }
+
 }

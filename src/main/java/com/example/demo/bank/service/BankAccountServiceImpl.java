@@ -2,8 +2,54 @@ package com.example.demo.bank.service;
 
 import com.example.demo.bank.domain.BankAccountDTO;
 
+import java.util.Random;
+
 public class BankAccountServiceImpl implements BankAccountService{
-    BankAccountDTO bankAccount = new BankAccountDTO();
+    private BankAccountDTO bankAccount;
+    private Random random;
+
+    @Override
+    public void createAccount(BankAccountDTO bank) {
+        random = new Random();
+        bankAccount  = new BankAccountDTO();
+        String randomNumber = "";
+        for(int i=0; i<3; i++){
+            for(int j=0; j<4; j++){
+                randomNumber += random.nextInt(10);
+            }
+            randomNumber += "-";
+        }
+        randomNumber = randomNumber.substring(0, randomNumber.length()-1);
+        bankAccount.setAccountNumber(randomNumber);
+        bankAccount.setName(bank.getName());
+    }
+
+    @Override
+    public int findBalance(BankAccountDTO bank) {
+        return bankAccount.getBalance();
+    }
+
+    @Override
+    public int deposit(BankAccountDTO bank) {
+        bankAccount.setBalance(bankAccount.getBalance() + bank.getMoney());
+        return bankAccount.getBalance();
+    }
+
+    @Override
+    public int withdraw(BankAccountDTO bank) {
+        bankAccount.setBalance(bankAccount.getBalance() - bank.getMoney());
+        return bankAccount.getBalance();
+    }
+
+    @Override
+    public void dropAccount(BankAccountDTO bank) {
+
+    }
+
+    @Override
+    public String findAccount() {
+        return bankAccount.getAccountNumber();
+    }
 }
 /**
  private int balance;

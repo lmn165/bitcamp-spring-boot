@@ -5,7 +5,7 @@ package com.example.demo.dog.service;
 public interface DogService {
 
     // 들어오고 나갈 속성이 없으므로 함수라고 볼 수 있다.
-    String barking(String Bark);
+    String barking(String bark);
     String fetching(String target);
     String waggingTail();
 }
