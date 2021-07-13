@@ -16,9 +16,10 @@ import java.util.Scanner;
 public class HomeController {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        DogController dogController = new DogController();
 
         while (true){
-            System.out.println("\n[메뉴] 0.종료, 1.계산기, 2.수열, 3.개 정보, 4.자전거 정보, 5.구구단 출력, 6.오늘날짜, 7.은행업무");
+            System.out.println("\n[메뉴] 0.종료, 1.계산기, 2.수열, 3.개등록, 33.개목록, 4.자전거 정보, 5.구구단 출력, 6.오늘날짜, 7.은행업무");
             switch (scanner.next()){
                 case "0": return;
                 case "1": new CalculatorController().calculate(); break;
@@ -31,9 +32,13 @@ public class HomeController {
                     dog.setColor(scanner.next());
                     System.out.println("품종은 무엇입니까?");
                     dog.setBreed(scanner.next());
-                    DogController dogController = new DogController(new DogServiceImpl(dog));
-                    System.out.println(dogController.barking("왈왈"));
+                    dogController.add(dog);
+//                    DogController dogController = new DogController(new DogServiceImpl(dog));
+//                    System.out.println(dogController.barking("왈왈"));
                 break;
+                case "33":
+                    dogController.show();
+                    break;
                 case "4": new BicyclesController().askBicycleInfo(); break;
                 case "5": new GugudanController().excuteGugudan(); break;
                 case "6": new UtilController().todayAndCurrentTime(); break;

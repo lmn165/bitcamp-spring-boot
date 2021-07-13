@@ -11,7 +11,7 @@ public class DogDTO {
 
     @Override
     public String toString() {
-        return String.format("이름은 %s이고, 색깔은 %s이고, 품종은 %s인 강아지가 ", name, color, breed);
+        return String.format("이름은 %s이고, 색깔은 %s이고, 품종은 %s입니다.", name, color, breed);
     }
 }
 
