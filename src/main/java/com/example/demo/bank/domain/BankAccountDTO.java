@@ -12,4 +12,7 @@ public class BankAccountDTO {
     private int balance;    // 예금 잔액
     private float interest; // 이자율
 
+    public String toString(){
+        return String.format("예금주: %s, 계좌번호: %s", name, accountNumber);
+    }
 }

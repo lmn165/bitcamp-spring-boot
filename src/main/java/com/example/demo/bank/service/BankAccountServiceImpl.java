@@ -2,11 +2,34 @@ package com.example.demo.bank.service;
 
 import com.example.demo.bank.domain.BankAccountDTO;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class BankAccountServiceImpl implements BankAccountService{
     private BankAccountDTO bankAccount;
     private Random random;
+    private final ArrayList<BankAccountDTO> bankAccounts = new ArrayList<>();
+
+    @Override
+    public Boolean deleteAccounts(BankAccountDTO bank) {
+        int cnt = 0;
+        for(BankAccountDTO account : bankAccounts){
+            // == 비교연산자로 비교 불가!
+            // 서로 다른 객체주소를 참조하고 있기 때문이다.
+            if (account.getName().equals(bank.getName())){
+                bankAccounts.remove(cnt);
+                return true;
+            }
+            cnt++;
+        }
+        return false;
+    }
+
+    @Override
+    public void showAccounts() {
+        System.out.printf("현재 계좌수는 총 %d개 입니다.\n", bankAccounts.size());
+        System.out.println(bankAccounts);
+    }
 
     @Override
     public void createAccount(BankAccountDTO bank) {
@@ -22,6 +45,7 @@ public class BankAccountServiceImpl implements BankAccountService{
         randomNumber = randomNumber.substring(0, randomNumber.length()-1);
         bankAccount.setAccountNumber(randomNumber);
         bankAccount.setName(bank.getName());
+        bankAccounts.add(bankAccount);
     }
 
     @Override

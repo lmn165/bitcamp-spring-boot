@@ -17,4 +17,9 @@ import com.example.demo.bank.domain.BankAccountDTO;
   int withdraw(BankAccountDTO bank);
   void dropAccount(BankAccountDTO bank);
   String findAccount();
+
+  // 전체 계좌 조회
+ void showAccounts();
+ // 계좌 삭제
+ Boolean deleteAccounts(BankAccountDTO bank);
 }

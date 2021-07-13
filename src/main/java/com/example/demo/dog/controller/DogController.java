@@ -3,12 +3,7 @@ package com.example.demo.dog.controller;
 import com.example.demo.dog.domain.DogDTO;
 import com.example.demo.dog.service.DogService;
 import com.example.demo.dog.service.DogServiceImpl;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-
-import java.util.ArrayList;
-import java.util.Scanner;
 
 @Controller
 //@RequiredArgsConstructor
@@ -16,11 +11,9 @@ import java.util.Scanner;
 public class DogController{
 
     private final DogService dogService;
-//    private final ArrayList<DogDTO> dogs;
 
     public DogController(){
         dogService = new DogServiceImpl();
-//        dogs = new ArrayList<>();
     }
 
     public void add(DogDTO dog) {

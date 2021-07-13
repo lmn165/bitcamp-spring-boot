@@ -10,16 +10,21 @@ import java.util.Scanner;
 public class BankAccountController {
     private BankAccountDTO bank;
     // 메인 컨트롤러에서 bankJob 메소드를 호출할 때마다 BankAccountService 객체를 생성하지 않도록, 클래스 로딩시 한번만 생성하게 해준다.
-    private static final BankAccountService bankAccountService = new BankAccountServiceImpl();
+    private final BankAccountService bankAccountService;
     private Scanner scanner;
 
-    public void bankJob(){
+    public BankAccountController(){
+        // final 예약어가 걸린 변수는 선언시 초기화 혹은 생성자에서의 초기화만이 가능하다.
+        bankAccountService = new BankAccountServiceImpl();
         // 두 개의 인스턴스 생성
         bank = new BankAccountDTO();
         scanner = new Scanner(System.in);
+    }
+
+    public void bankJob(){
 
 //        BankAccountService park = new BankAccountServiceImpl();
-        System.out.println("실행하실 기능을 선택하세요. (1.계좌생성, 2.입금, 3.출금, 4.예금조회, 5.계좌번호 조회)");
+        System.out.println("실행하실 기능을 선택하세요. (1.계좌생성, 2.입금, 3.출금, 4.예금조회, 5.계좌번호 조회, 6.계좌삭제, 7.계좌목록 조회)");
         switch (scanner.next()){
             case "1":
                 System.out.println("예금주 명을 입력하세요.");
@@ -42,6 +47,16 @@ public class BankAccountController {
                 break;
             case "5":
                 System.out.println("계좌번호: "+ bankAccountService.findAccount());
+                break;
+            case "6":
+                bankAccountService.showAccounts();
+                System.out.println("해지하실 계좌의 예금주를 입력하세요: ");
+                bank.setName(scanner.next());
+                System.out.println(bankAccountService.deleteAccounts(bank)?
+                        "정상적으로 해지되었습니다.": "입력된 예금주가 조회되지 않습니다. 다시 확인해주세요.");
+                break;
+            case "7":
+                bankAccountService.showAccounts();
                 break;
         }
 
