@@ -1,14 +1,16 @@
 package com.example.demo.bank.service;
 
 import com.example.demo.bank.domain.BankAccountDTO;
+import com.example.demo.util.service.UtilService;
+import com.example.demo.util.service.UtilServiceImpl;
 
 import java.util.ArrayList;
-import java.util.Random;
+import java.util.List;
 
 public class BankAccountServiceImpl implements BankAccountService{
     private BankAccountDTO bankAccount;
-    private Random random;
-    private final ArrayList<BankAccountDTO> bankAccounts = new ArrayList<>();
+    private final List<BankAccountDTO> bankAccounts = new ArrayList<>();
+    private UtilService utilService;
 
     @Override
     public Boolean deleteAccounts(BankAccountDTO bank) {
@@ -26,20 +28,24 @@ public class BankAccountServiceImpl implements BankAccountService{
     }
 
     @Override
-    public void showAccounts() {
-        System.out.printf("현재 계좌수는 총 %d개 입니다.\n", bankAccounts.size());
-        System.out.println(bankAccounts);
+    public int count() {
+        return bankAccounts.size();
+    }
+
+    @Override
+    public List<?> showAccounts() {
+//        System.out.printf("현재 계좌수는 총 %d개 입니다.\n", bankAccounts.size());
+//        System.out.println(bankAccounts);
+        return bankAccounts;
     }
 
     @Override
     public void createAccount(BankAccountDTO bank) {
-        random = new Random();
         bankAccount  = new BankAccountDTO();
+        utilService = new UtilServiceImpl();
         String randomNumber = "";
         for(int i=0; i<3; i++){
-            for(int j=0; j<4; j++){
-                randomNumber += random.nextInt(10);
-            }
+            randomNumber += utilService.randomNumbers(4);
             randomNumber += "-";
         }
         randomNumber = randomNumber.substring(0, randomNumber.length()-1);

@@ -10,4 +10,6 @@ public interface UtilService {
     LocalDate today();
     LocalTime currentTime();
     String todayAndCurrentTime();
+    // 자릿수를 입력받아 랜덤난수 생성
+    String randomNumbers(int digits);
 }

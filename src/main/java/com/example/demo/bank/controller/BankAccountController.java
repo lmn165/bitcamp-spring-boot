@@ -56,7 +56,9 @@ public class BankAccountController {
                         "정상적으로 해지되었습니다.": "입력된 예금주가 조회되지 않습니다. 다시 확인해주세요.");
                 break;
             case "7":
-                bankAccountService.showAccounts();
+                System.out.printf("계좌는 총 %d개 있습니다.\n", bankAccountService.count());
+                System.out.println(bankAccountService.showAccounts());
+//                bankAccountService.showAccounts();
                 break;
         }
 

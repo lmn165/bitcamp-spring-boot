@@ -11,4 +11,8 @@ public class UtilController {
     public void todayAndCurrentTime(){
         System.out.println(utilService.todayAndCurrentTime());
     }
+    /*public String randomNumbers(int digits){
+        return utilService.randomNumbers(digits);
+    }*/
+
 }

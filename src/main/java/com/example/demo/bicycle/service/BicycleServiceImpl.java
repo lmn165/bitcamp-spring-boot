@@ -3,6 +3,7 @@ package com.example.demo.bicycle.service;
 import com.example.demo.bicycle.domain.BicycleDTO;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class BicycleServiceImpl implements BicycleService{
     private final ArrayList<BicycleDTO> bicycles = new ArrayList<>();
@@ -13,8 +14,9 @@ public class BicycleServiceImpl implements BicycleService{
     }
 
     @Override
-    public void showBicycles() {
-        System.out.println(bicycles);
+    public List<?> showBicycles() {
+//        System.out.println(bicycles);
+        return bicycles;
     }
 
     @Override

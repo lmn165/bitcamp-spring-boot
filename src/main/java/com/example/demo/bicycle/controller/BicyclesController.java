@@ -23,7 +23,7 @@ public class BicyclesController {
     }
 
     public void showBicycles() {
-        bicycleService.showBicycles();
+        System.out.println(bicycleService.showBicycles());
     }
 
     public int countBicycles() {

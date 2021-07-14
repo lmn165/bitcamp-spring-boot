@@ -2,6 +2,8 @@ package com.example.demo.bank.service;
 
 import com.example.demo.bank.domain.BankAccountDTO;
 
+import java.util.List;
+
 /**
  * * 은행이름은 상수로 정한다. (모든 기능에 들어가기 때문에)
  * 계좌생성 - 이름을 입력하면 계좌가 생성된다. (단, 계좌번호는 ****-****-**** 이고 랜덤값이다.)
@@ -18,8 +20,10 @@ import com.example.demo.bank.domain.BankAccountDTO;
   void dropAccount(BankAccountDTO bank);
   String findAccount();
 
+  // 계좌 갯수 조회
+  int count();
   // 전체 계좌 조회
- void showAccounts();
- // 계좌 삭제
- Boolean deleteAccounts(BankAccountDTO bank);
+  List<?> showAccounts();
+  // 계좌 삭제
+  Boolean deleteAccounts(BankAccountDTO bank);
 }

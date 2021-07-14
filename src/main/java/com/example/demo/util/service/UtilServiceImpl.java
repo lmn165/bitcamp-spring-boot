@@ -6,6 +6,20 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class UtilServiceImpl implements UtilService {
+    // 주어진 자릿수 만큼의 랜덤난수를 생성하는 기능
+    @Override
+    public String randomNumbers(int digits) {
+        // Math.random()    클래스 메소드
+        // Random random = new Random();
+        // random.nextInt(1000);
+//        random = new Random();
+        String randomNumber = "";
+        for(int i=0; i<digits; i++){
+            randomNumber += (int)(Math.random()*10);
+        }
+
+        return randomNumber;
+    }
     // 아래 코드는 말이 안되는 코드이다. -> 클래스 변수로 인식되기 때문이다.
     // UtilDTO util = new UtilDTO();
 

@@ -9,7 +9,7 @@ import java.util.List;
 public interface DogService {
 
     void add(DogDTO dog);
-    List<DogDTO> show();
+    List<?> show();
     int count();
     String barking(String bark);
     String fetching(String target);
