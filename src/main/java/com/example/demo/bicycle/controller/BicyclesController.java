@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class BicyclesController {
     // 자전거 등록, 목록 출력
-    private BicycleDTO bicycle;
+    private BicycleDTO bicycle ;
     private Scanner scanner;
     private BicycleService bicycleService;
     public BicyclesController(){

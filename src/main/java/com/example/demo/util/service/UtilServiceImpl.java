@@ -4,6 +4,7 @@ import com.example.demo.util.domain.UtilDTO;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Random;
 
 public class UtilServiceImpl implements UtilService {
     // 주어진 자릿수 만큼의 랜덤난수를 생성하는 기능

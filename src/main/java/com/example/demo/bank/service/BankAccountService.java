@@ -22,8 +22,10 @@ import java.util.List;
 
   // 계좌 갯수 조회
   int count();
-  // 전체 계좌 조회
+  // 전체 계좌 조회(이름, 계좌번호)
   List<?> showAccounts();
   // 계좌 삭제
   Boolean deleteAccounts(BankAccountDTO bank);
+  // 계좌 번호만 조회
+  String[] findAllAccountNumber();
 }

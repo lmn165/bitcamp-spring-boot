@@ -33,10 +33,17 @@ public class BankAccountController {
                 System.out.println("현재 잔액: "+bankAccountService.findBalance(bank));
                 break;
             case "2":
+                System.out.println("입금하실 계좌의 계좌번호를 입력하세요: ");
+                bank.setAccountNumber(scanner.next());
                 System.out.println("입금하실 금액을 입력하세요: ");
                 bank.setMoney(scanner.nextInt());
-                System.out.println("입금 후 잔액: " + bankAccountService.deposit(bank));
+                System.out.println(bankAccountService.deposit(bank));
                 break;
+
+//                System.out.println("입금하실 금액을 입력하세요: ");
+//                bank.setMoney(scanner.nextInt());
+//                System.out.println("입금 후 잔액: " + bankAccountService.deposit(bank));
+//                break;
             case "3":
                 System.out.println("출금하실 금액을 입력하세요: ");
                 bank.setMoney(scanner.nextInt());
@@ -46,14 +53,16 @@ public class BankAccountController {
                 System.out.println("현재 잔액: "+ bankAccountService.findBalance(bank));
                 break;
             case "5":
-                System.out.println("계좌번호: "+ bankAccountService.findAccount());
+//                System.out.println("전체 계좌번호 조회: "+ bankAccountService.findAllAccountNumber().toString());
+                for (String s : bankAccountService.findAllAccountNumber()){
+                    System.out.println("계좌번호: " + s);
+                }
                 break;
             case "6":
-                bankAccountService.showAccounts();
-                System.out.println("해지하실 계좌의 예금주를 입력하세요: ");
-                bank.setName(scanner.next());
+                System.out.println("해지하실 계좌의 계좌번호를 입력하세요: ");
+                bank.setAccountNumber(scanner.next());
                 System.out.println(bankAccountService.deleteAccounts(bank)?
-                        "정상적으로 해지되었습니다.": "입력된 예금주가 조회되지 않습니다. 다시 확인해주세요.");
+                        "정상적으로 해지되었습니다.": "입력된 계좌번호가 조회되지 않습니다. 다시 확인해주세요.");
                 break;
             case "7":
                 System.out.printf("계좌는 총 %d개 있습니다.\n", bankAccountService.count());

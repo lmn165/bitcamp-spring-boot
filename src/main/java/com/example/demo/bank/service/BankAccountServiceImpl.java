@@ -13,12 +13,25 @@ public class BankAccountServiceImpl implements BankAccountService{
     private UtilService utilService;
 
     @Override
+    public String[] findAllAccountNumber() {
+        String[] arr = new String[count()];
+        for (int i=0; i<arr.length; i++){
+            arr[i] = bankAccounts.get(i).getAccountNumber();
+        }
+//        List<String> accountsInfo = new ArrayList<>();
+//        for (BankAccountDTO bankAccount : bankAccounts) {
+//            accountsInfo.add(bankAccount.getAccountNumber());
+//        }
+        return arr;
+    }
+
+    @Override
     public Boolean deleteAccounts(BankAccountDTO bank) {
         int cnt = 0;
         for(BankAccountDTO account : bankAccounts){
             // == 비교연산자로 비교 불가!
             // 서로 다른 객체주소를 참조하고 있기 때문이다.
-            if (account.getName().equals(bank.getName())){
+            if (account.getAccountNumber().equals(bank.getAccountNumber())){
                 bankAccounts.remove(cnt);
                 return true;
             }
@@ -34,8 +47,7 @@ public class BankAccountServiceImpl implements BankAccountService{
 
     @Override
     public List<?> showAccounts() {
-//        System.out.printf("현재 계좌수는 총 %d개 입니다.\n", bankAccounts.size());
-//        System.out.println(bankAccounts);
+
         return bankAccounts;
     }
 
@@ -43,13 +55,21 @@ public class BankAccountServiceImpl implements BankAccountService{
     public void createAccount(BankAccountDTO bank) {
         bankAccount  = new BankAccountDTO();
         utilService = new UtilServiceImpl();
-        String randomNumber = "";
-        for(int i=0; i<3; i++){
+        String firstNumber = utilService.randomNumbers(4);
+        String randomNumber = String.format("%s-%s",
+                utilService.randomNumbers(4), utilService.randomNumbers(4));
+        while (true){
+            if(firstNumber.substring(0, 1).equals("0")){
+                firstNumber = utilService.randomNumbers(4);
+            }
+            break;
+        }
+        /*for(int i=0; i<3; i++){
             randomNumber += utilService.randomNumbers(4);
             randomNumber += "-";
         }
-        randomNumber = randomNumber.substring(0, randomNumber.length()-1);
-        bankAccount.setAccountNumber(randomNumber);
+        randomNumber = randomNumber.substring(0, randomNumber.length()-1);*/
+        bankAccount.setAccountNumber(firstNumber + "-" + randomNumber);
         bankAccount.setName(bank.getName());
         bankAccounts.add(bankAccount);
     }
@@ -61,7 +81,12 @@ public class BankAccountServiceImpl implements BankAccountService{
 
     @Override
     public int deposit(BankAccountDTO bank) {
-        bankAccount.setBalance(bankAccount.getBalance() + bank.getMoney());
+        for(BankAccountDTO account : bankAccounts){
+            if (account.getAccountNumber().equals(bank.getAccountNumber())){
+                account.setBalance(account.getBalance() + bank.getMoney());
+                return account.getBalance();
+            }
+        }
         return bankAccount.getBalance();
     }
 
