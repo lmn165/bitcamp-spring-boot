@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class BicyclesController extends LambdaUtils {
     // 자전거 등록, 목록 출력
-    private BicycleDTO bicycle ;
+    private BicycleDTO bicycle;
     private BicycleService bicycleService;
     public BicyclesController(){
         bicycleService = new BicycleServiceImpl();

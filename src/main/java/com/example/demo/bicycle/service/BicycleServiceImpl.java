@@ -6,7 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BicycleServiceImpl implements BicycleService{
-    private final ArrayList<BicycleDTO> bicycles = new ArrayList<>();
+    private final ArrayList<BicycleDTO> bicycles;
+
+    public BicycleServiceImpl(){
+        bicycles = new ArrayList<>();
+    }
 
     @Override
     public void addBicycles(BicycleDTO bicycle) {

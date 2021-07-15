@@ -1,7 +1,5 @@
 package com.example.demo.bank.controller;
 
-import com.example.demo.bank.domain.BankAccountDTO;
-
 public class BankAccountConstructorController {
 
     public void bankAccountConstructor(){

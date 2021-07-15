@@ -1,6 +1,6 @@
 package com.example.demo.common.controller;
 
-import com.example.demo.bank.controller.BankAccountController;
+import com.example.demo.bank.controller.BankController;
 import com.example.demo.bicycle.controller.BicyclesController;
 import com.example.demo.dog.controller.DogController;
 import com.example.demo.math.controller.MathController;
@@ -20,7 +20,7 @@ public class HomeController extends LambdaUtils {
                 case "2": new MathController().main(); break;
                 case "3": new DogController().main(); break;
                 case "4": new BicyclesController().main(); break;
-                case "5": new BankAccountController().bankJob(); break;
+                case "5": new BankController().bankJob(); break;
             }
         }
     }

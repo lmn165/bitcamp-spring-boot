@@ -1,6 +1,6 @@
 package com.example.demo.bank.service;
 
-import com.example.demo.bank.domain.BankAccountDTO;
+import com.example.demo.bank.domain.AccountDTO;
 import com.example.demo.util.service.LambdaUtils;
 import com.example.demo.util.service.UtilService;
 import com.example.demo.util.service.UtilServiceImpl;
@@ -8,12 +8,12 @@ import com.example.demo.util.service.UtilServiceImpl;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BankAccountServiceImpl extends LambdaUtils implements BankAccountService{
-    private BankAccountDTO bankAccount;
-    private final List<BankAccountDTO> bankAccounts;
+public class BankServiceImpl extends LambdaUtils implements BankService {
+    private AccountDTO account;
+    private final List<AccountDTO> bankAccounts;
     private UtilService utilService;
 
-    public BankAccountServiceImpl(){
+    public BankServiceImpl(){
         bankAccounts = new ArrayList<>();
     }
 
@@ -31,9 +31,9 @@ public class BankAccountServiceImpl extends LambdaUtils implements BankAccountSe
     }
 
     @Override
-    public Boolean deleteAccounts(BankAccountDTO bank) {
+    public Boolean dropAccount(AccountDTO bank) {
         int cnt = 0;
-        for(BankAccountDTO account : bankAccounts){
+        for(AccountDTO account : bankAccounts){
             // == 비교연산자로 비교 불가!
             // 서로 다른 객체주소를 참조하고 있기 때문이다.
             if (account.getAccountNumber().equals(bank.getAccountNumber())){
@@ -56,8 +56,8 @@ public class BankAccountServiceImpl extends LambdaUtils implements BankAccountSe
     }
 
     @Override
-    public void createAccount(BankAccountDTO bank) {
-        bankAccount  = new BankAccountDTO();
+    public void createAccount(AccountDTO bank) {
+        account  = new AccountDTO();
         utilService = new UtilServiceImpl();
         String firstNumber = utilService.randomNumbers(4);
         String randomNumber = String.format("%s-%s",
@@ -68,20 +68,20 @@ public class BankAccountServiceImpl extends LambdaUtils implements BankAccountSe
             }
             break;
         }
-        bankAccount.setBalance("0");
+        account.setBalance("0");
         /*for(int i=0; i<3; i++){
             randomNumber += utilService.randomNumbers(4);
             randomNumber += "-";
         }
         randomNumber = randomNumber.substring(0, randomNumber.length()-1);*/
-        bankAccount.setAccountNumber(firstNumber + "-" + randomNumber);
-        bankAccount.setName(bank.getName());
-        bankAccounts.add(bankAccount);
+        account.setAccountNumber(firstNumber + "-" + randomNumber);
+        account.setName(bank.getName());
+        bankAccounts.add(account);
     }
 
     @Override
-    public BankAccountDTO findBalance(BankAccountDTO bank) {
-        for(BankAccountDTO account : bankAccounts){
+    public AccountDTO findAccount(AccountDTO bank) {
+        for(AccountDTO account : bankAccounts){
             if (account.getAccountNumber().equals(bank.getAccountNumber())){
                 return account;
             }
@@ -90,8 +90,8 @@ public class BankAccountServiceImpl extends LambdaUtils implements BankAccountSe
     }
 
     @Override
-    public String deposit(BankAccountDTO bank) {
-        for(BankAccountDTO account : bankAccounts){
+    public String deposit(AccountDTO bank) {
+        for(AccountDTO account : bankAccounts){
             if (account.getAccountNumber().equals(bank.getAccountNumber())){
                 account.setBalance(string.apply(strToInt.apply(account.getBalance()) + strToInt.apply(bank.getMoney())) );
                 return account.getBalance();
@@ -101,8 +101,8 @@ public class BankAccountServiceImpl extends LambdaUtils implements BankAccountSe
     }
 
     @Override
-    public String withdraw(BankAccountDTO bank) {
-        for(BankAccountDTO account : bankAccounts){
+    public String withdraw(AccountDTO bank) {
+        for(AccountDTO account : bankAccounts){
             if (account.getAccountNumber().equals(bank.getAccountNumber())){
                 account.setBalance(string.apply(strToInt.apply(account.getBalance()) - strToInt.apply(bank.getMoney())));
                 return account.getBalance();
@@ -112,13 +112,8 @@ public class BankAccountServiceImpl extends LambdaUtils implements BankAccountSe
     }
 
     @Override
-    public void dropAccount(BankAccountDTO bank) {
-
-    }
-
-    @Override
-    public String findAccount() {
-        return bankAccount.getAccountNumber();
+    public String findBalance() {
+        return account.getAccountNumber();
     }
 }
 /**
