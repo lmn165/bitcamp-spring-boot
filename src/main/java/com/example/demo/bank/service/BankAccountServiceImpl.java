@@ -1,20 +1,25 @@
 package com.example.demo.bank.service;
 
 import com.example.demo.bank.domain.BankAccountDTO;
+import com.example.demo.util.service.LambdaUtils;
 import com.example.demo.util.service.UtilService;
 import com.example.demo.util.service.UtilServiceImpl;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class BankAccountServiceImpl implements BankAccountService{
+public class BankAccountServiceImpl extends LambdaUtils implements BankAccountService{
     private BankAccountDTO bankAccount;
-    private final List<BankAccountDTO> bankAccounts = new ArrayList<>();
+    private final List<BankAccountDTO> bankAccounts;
     private UtilService utilService;
+
+    public BankAccountServiceImpl(){
+        bankAccounts = new ArrayList<>();
+    }
 
     @Override
     public String[] findAllAccountNumber() {
-        String[] arr = new String[count()];
+        String[] arr = new String[strToInt.apply(count())];
         for (int i=0; i<arr.length; i++){
             arr[i] = bankAccounts.get(i).getAccountNumber();
         }
@@ -41,13 +46,12 @@ public class BankAccountServiceImpl implements BankAccountService{
     }
 
     @Override
-    public int count() {
-        return bankAccounts.size();
+    public String count() {
+        return string.apply(bankAccounts.size());
     }
 
     @Override
     public List<?> showAccounts() {
-
         return bankAccounts;
     }
 
@@ -64,6 +68,7 @@ public class BankAccountServiceImpl implements BankAccountService{
             }
             break;
         }
+        bankAccount.setBalance("0");
         /*for(int i=0; i<3; i++){
             randomNumber += utilService.randomNumbers(4);
             randomNumber += "-";
@@ -75,25 +80,35 @@ public class BankAccountServiceImpl implements BankAccountService{
     }
 
     @Override
-    public int findBalance(BankAccountDTO bank) {
-        return bankAccount.getBalance();
+    public BankAccountDTO findBalance(BankAccountDTO bank) {
+        for(BankAccountDTO account : bankAccounts){
+            if (account.getAccountNumber().equals(bank.getAccountNumber())){
+                return account;
+            }
+        }
+        return null;
     }
 
     @Override
-    public int deposit(BankAccountDTO bank) {
+    public String deposit(BankAccountDTO bank) {
         for(BankAccountDTO account : bankAccounts){
             if (account.getAccountNumber().equals(bank.getAccountNumber())){
-                account.setBalance(account.getBalance() + bank.getMoney());
+                account.setBalance(string.apply(strToInt.apply(account.getBalance()) + strToInt.apply(bank.getMoney())) );
                 return account.getBalance();
             }
         }
-        return bankAccount.getBalance();
+        return "0";
     }
 
     @Override
-    public int withdraw(BankAccountDTO bank) {
-        bankAccount.setBalance(bankAccount.getBalance() - bank.getMoney());
-        return bankAccount.getBalance();
+    public String withdraw(BankAccountDTO bank) {
+        for(BankAccountDTO account : bankAccounts){
+            if (account.getAccountNumber().equals(bank.getAccountNumber())){
+                account.setBalance(string.apply(strToInt.apply(account.getBalance()) - strToInt.apply(bank.getMoney())));
+                return account.getBalance();
+            }
+        }
+        return "0";
     }
 
     @Override

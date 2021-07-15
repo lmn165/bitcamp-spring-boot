@@ -14,14 +14,14 @@ import java.util.List;
 **/
  public interface BankAccountService {
   void createAccount(BankAccountDTO bank);
-  int findBalance(BankAccountDTO bank);
-  int deposit(BankAccountDTO bank);
-  int withdraw(BankAccountDTO bank);
+  BankAccountDTO findBalance(BankAccountDTO bank);
+  String deposit(BankAccountDTO bank);
+  String withdraw(BankAccountDTO bank);
   void dropAccount(BankAccountDTO bank);
   String findAccount();
 
   // 계좌 갯수 조회
-  int count();
+  String count();
   // 전체 계좌 조회(이름, 계좌번호)
   List<?> showAccounts();
   // 계좌 삭제

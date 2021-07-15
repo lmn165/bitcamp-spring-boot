@@ -1,6 +1,8 @@
 package com.example.demo.math.controller;
 
-public class SumController {
+import com.example.demo.util.service.LambdaUtils;
+
+public class SumController extends LambdaUtils {
 
     public void sum(){
         int i=0;
@@ -10,13 +12,13 @@ public class SumController {
         while(i<100){
             result += ++i;
         }
-        System.out.println("while문을 이용한 1~10까지의 합: " + result);
+        print.accept("while문을 이용한 1~10까지의 합: " + result);
 
         // for문을 이용한 합
         for(i=0, result=0; i<100; i++){
             result += (i+1);
         }
-        System.out.println("for문을 이용한 1~10까지의 합: " + result);
+        print.accept("for문을 이용한 1~10까지의 합: " + result);
     }
 
 }

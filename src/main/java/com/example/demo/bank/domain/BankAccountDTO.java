@@ -8,11 +8,11 @@ public class BankAccountDTO {
     private String name;
     private String accountNumber;   // 계좌번호
     private String date;
-    private int money;
-    private int balance;    // 예금 잔액
-    private float interest; // 이자율
+    private String money;
+    private String balance;    // 예금 잔액
+    private String interest; // 이자율
 
     public String toString(){
-        return String.format("예금주: %s, 계좌번호: %s, 잔액: %s", name, accountNumber, balance);
+        return String.format("예금주: %s, 계좌번호: %s", name, accountNumber);
     }
 }

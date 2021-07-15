@@ -10,7 +10,7 @@ import java.util.List;
 //@RequiredArgsConstructor
 public class DogServiceImpl implements DogService{
     private DogDTO dog;
-    private List<DogDTO> dogs;
+    private final List<DogDTO> dogs;
 
     public DogServiceImpl(){
         dog = new DogDTO();
