@@ -4,7 +4,7 @@ import lombok.Data;
 
 // DTO와 Service 묶음
 public class PhoneApp {
-    @Data class Phone{
+    @Data public class Phone{
         protected String kind, company, call;
         @Override public String toString() {
             return "집전화기{" +
@@ -14,7 +14,7 @@ public class PhoneApp {
                     '}';
         }
     }
-    @Data class CellPhone extends Phone{
+    @Data public class CellPhone extends Phone{
         protected boolean portable;
         protected String move;
         @Override public String toString() {
@@ -26,7 +26,7 @@ public class PhoneApp {
                     '}';
         }
     }
-    @Data class IPhone extends CellPhone{
+    @Data public class IPhone extends CellPhone{
         public final static String BRAND = "아이폰";
         protected String internet;
         @Override public String toString() {
@@ -38,7 +38,7 @@ public class PhoneApp {
                     '}';
         }
     }
-    @Data class GalaxyNote extends IPhone{
+    @Data public class GalaxyNote extends IPhone{
         public final static String BRAND = "갤럭시폰";
         protected String pencil;
         @Override public String toString() {
