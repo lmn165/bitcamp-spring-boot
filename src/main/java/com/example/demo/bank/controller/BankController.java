@@ -18,7 +18,6 @@ public class BankController extends LambdaUtils {
     public BankController(){
         // final 예약어가 걸린 변수는 선언시 초기화 혹은 생성자에서의 초기화만이 가능하다.
         bankService = new BankServiceImpl();
-        // 두 개의 인스턴스 생성
         bank = new AccountDTO();
 //        scanner = new Scanner(System.in);
     }
@@ -66,8 +65,9 @@ public class BankController extends LambdaUtils {
                     bank.setAccountNumber(scanner.next());
                     AccountDTO tmpBank = bankService.findAccount(bank);
                     if(tmpBank != null){
-                        print.accept(String.format("은행명: %s\n예금주: %s\n계좌번호: %s\n잔액: %s\n",
-                                bank.BANK_NAME, tmpBank.getName(), tmpBank.getAccountNumber(), tmpBank.getBalance()));
+                        print.accept(String.format("은행명: %s\n예금주: %s\n계좌번호: %s\n잔액: %s\n이자율: %s\n개설일: %s\n",
+                                bank.BANK_NAME, tmpBank.getName(), tmpBank.getAccountNumber(), tmpBank.getBalance(),
+                                tmpBank.getInterest(), tmpBank.getDate()));
                     } else {
                         print.accept("없는 계좌번호 입니다.\n");
                     }

@@ -69,6 +69,8 @@ public class BankServiceImpl extends LambdaUtils implements BankService {
             break;
         }
         account.setBalance("0");
+        account.setDate(utilService.todayAndCurrentTime());
+        account.setInterest("0.01");
         /*for(int i=0; i<3; i++){
             randomNumber += utilService.randomNumbers(4);
             randomNumber += "-";
@@ -82,7 +84,7 @@ public class BankServiceImpl extends LambdaUtils implements BankService {
     @Override
     public AccountDTO findAccount(AccountDTO bank) {
         for(AccountDTO account : bankAccounts){
-            if (account.getAccountNumber().equals(bank.getAccountNumber())){
+            if (bank.getAccountNumber().equals(account.getAccountNumber())){
                 return account;
             }
         }
@@ -92,7 +94,7 @@ public class BankServiceImpl extends LambdaUtils implements BankService {
     @Override
     public String deposit(AccountDTO bank) {
         for(AccountDTO account : bankAccounts){
-            if (account.getAccountNumber().equals(bank.getAccountNumber())){
+            if (bank.getAccountNumber().equals(account.getAccountNumber())){
                 account.setBalance(string.apply(strToInt.apply(account.getBalance()) + strToInt.apply(bank.getMoney())) );
                 return account.getBalance();
             }
@@ -103,7 +105,7 @@ public class BankServiceImpl extends LambdaUtils implements BankService {
     @Override
     public String withdraw(AccountDTO bank) {
         for(AccountDTO account : bankAccounts){
-            if (account.getAccountNumber().equals(bank.getAccountNumber())){
+            if (bank.getAccountNumber().equals(account.getAccountNumber())){
                 account.setBalance(string.apply(strToInt.apply(account.getBalance()) - strToInt.apply(bank.getMoney())));
                 return account.getBalance();
             }
