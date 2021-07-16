@@ -17,7 +17,7 @@ import java.util.List;
   AccountDTO findAccount(AccountDTO bank);
   String deposit(AccountDTO bank);
   String withdraw(AccountDTO bank);
-  String findBalance();
+//  String findBalance();
 
   // 계좌 갯수 조회
   String count();
